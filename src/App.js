@@ -1,40 +1,35 @@
 import React from 'react';
+import './App.css';
+
+// mylinks:
+
+// Make it Holy:
+// https://youtu.be/rhJEAEeYmIM?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY
+//
+// One:
+// https://youtu.be/yPCVBWifC6U?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY
+//
+// Dance:
+// https://youtu.be/lEnzIF6iuJw?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY
+
 
 function App() {
 
-    let numberToFix = prompt("Please give a number you want to fix");
-    let decimalPlaces = prompt("Please give me the number of decimal places you want:");
+    const onelink = <a href="https://youtu.be/yPCVBWifC6U?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY" target="_blank">Song of a mysterious prince</a>;
+    const twolink = <a href="https://youtu.be/lEnzIF6iuJw?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY" target="_blank">Dance of a hateful man</a>;
+    const threelink = <a href="https://youtu.be/rhJEAEeYmIM?list=PLCZ4SfWipa-oX7g7tWVw4SOQlpoORVRhY" target="_blank">Super
+        sad sounds for a sad romance</a>;
 
-    function fix(number1,number2) {
-        let divideBy = Math.pow(10,number2);
-        number1 = Math.round(number1 * divideBy) / divideBy;
-        return "" + number1;
+    function displayOnLoad() {
+        console.log('loaded')
     }
-
-    let finalNumber = fix(numberToFix,decimalPlaces);
-
-    let indexOfDot = finalNumber.indexOf(".");
-
-    if (indexOfDot===-1) {
-        finalNumber = finalNumber + ".";
-        indexOfDot = finalNumber.indexOf(".");
-    }
-
-    if ((finalNumber.length - indexOfDot - 1) < decimalPlaces && finalNumber.indexOf(".")===finalNumber.length-1) {
-        finalNumber = finalNumber + "0".repeat(decimalPlaces);
-    } else {
-        finalNumber = finalNumber + "0".repeat(decimalPlaces - (finalNumber.length - indexOfDot - 1));
-    }
-
-    /*
-
-     */
-
-    document.write(numberToFix + " fixed to " + decimalPlaces + " decimal places is ");
-    document.write(finalNumber + ".");
 
     return (
-        <div>
+        <div onLoad={displayOnLoad}>
+            Best videos:<br/>
+            {onelink}<br/>
+            {twolink}<br/>
+            {threelink}
         </div>
     );
 }
