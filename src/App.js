@@ -1,27 +1,18 @@
 import React from 'react';
 import "./App.css";
 
-let Array = [];
+let myFavoriteCultivators = ['Lan Xichen','Jin Guangyao','Nie Huaisang','Wei Wuxian','Jiang Cheng']
 
-for (let i=1;i<=100;i++) {
-    if (i%2===0 && i%5===0) {
-        console.log("FizzBuzz")
-        Array.push(<div>FizzBuzz</div>)
-    } else if (i%2===0) {
-        console.log("Fizz")
-        Array.push(<div>Fizz</div>)
-    } else if (i%5===0) {
-        console.log("Buzz")
-        Array.push(<div>Buzz</div>)
-    } else {
-        console.log(i)
-        Array.push(<div>{i}</div>)
-    }
-}
+let myAbsoluteFavoriteCultivators = myFavoriteCultivators.map(
+    (element,index) =>
+        <div key={"cultivator" + index}>
+            {element}</div>)
+
+console.log(myAbsoluteFavoriteCultivators[1].key)
 
 function App() {
     return (
-        <div>{Array}</div>
+        <div>{myAbsoluteFavoriteCultivators}</div>
     );
 }
 
